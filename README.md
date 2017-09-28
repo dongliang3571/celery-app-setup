@@ -40,7 +40,7 @@ pip install celery
 
 Create a Python file tasks.py with following code
 
-```
+```python
 from celery import Celery
 
 app = Celery('tasks', backend='redis://localhost/1', broker='amqp://localhost:5672')
@@ -62,6 +62,18 @@ Start worker
 
 ```
 celery -A tasks worker -Q math --loglevel=info
+```
+
+Create a celery application to submit tasks
+
+```python
+import tasks
+
+task.add.delay(1, 2)
+
+# or
+
+task.add.apply_aync([1, 2])
 ```
 
 1. Messages are sent to exchanges.
