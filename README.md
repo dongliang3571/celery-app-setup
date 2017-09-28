@@ -42,16 +42,21 @@ Create a Python file tasks.py with following code
 
 ```python
 from celery import Celery
-
 app = Celery('tasks', backend='redis://localhost/1', broker='amqp://localhost:5672')
+
+CELERY_QUEUES = [
+    Queue('math', exchange=Exchange('course', type='direct'), routing_key='task'),
+]
 
 CELERY_ROUTES = {
     'tasks.add': {
         'queue': 'math',
+        'routing_key': 'task'
     }
 }
 
 app.conf['CELERY_ROUTES'] = CELERY_ROUTES
+app.conf['CELERY_QUEUES'] = CELERY_QUEUES
 
 @app.task
 def add(x, y):
