@@ -91,3 +91,7 @@ task.add.apply_aync([1, 2])
 1. Create an exchange
 2. Create a queue
 3. Bind the queue to the exchange.
+
+Message consumer
+
+Concurrency
