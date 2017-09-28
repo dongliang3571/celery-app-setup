@@ -1,5 +1,9 @@
 # celery-app-setup
 
+**Workflow**
+
+![workflow](https://github.com/dongliang3571/celery-app-setup/blob/master/screenshots/workflow.png?raw=true "workflow")
+
 **Install message broker**
 
 For example, rabbitmq, redis and etc.
