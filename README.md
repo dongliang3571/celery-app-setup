@@ -42,6 +42,8 @@ Create a Python file tasks.py with following code
 
 ```python
 from celery import Celery
+
+
 app = Celery('tasks', backend='redis://localhost/1', broker='amqp://localhost:5672')
 
 CELERY_QUEUES = [
